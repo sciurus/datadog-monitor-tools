@@ -33,7 +33,8 @@ datadog.initialize(**options)
 
 raw_monitors = datadog.api.Monitor.get_all(**args)
 
-monitors = [{'name': m['name'], 'query': m['query'], 'message': m['message'],
-            'options': m['options'], 'tags': m['tags']} for m in raw_monitors]
+monitors = [{'id': m['id'], 'name': m['name'], 'query': m['query'],
+             'message': m['message'], 'options': m['options'],
+             'tags': m['tags']} for m in raw_monitors]
 
 print(yaml.dump(monitors))

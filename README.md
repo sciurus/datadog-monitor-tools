@@ -13,8 +13,18 @@ This requires a working Python 3 environment.
 
 # Usage
 
+## Prerequisites
+
+1. Set up an API and application key at https://app.datadoghq.com/account/settings#api
+1. `export DD_API_KEY=your_api_key`
+1. `export DD_APP_KEY=your_app_key`
+
+## Basic Usage
+
 1. `./get_monitors.py > foo.yml`
 1. Make your changes to foo.yml
 1. `./update_monitors.py foo.yml`
 
-get_monitors.py allows you to filter the monitors to download by name, tag, and monitor tag as described at https://docs.datadoghq.com/api/?lang=python#get-all-monitor-details
+## Advanced Usage
+
+get_monitors.py allows you to filter the monitors to download by any combination of name, tag, and monitor tag as described at https://docs.datadoghq.com/api/?lang=python#get-all-monitor-details. For example, `get_monitors.py --tags 'env:foo,app:bar'`

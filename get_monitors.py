@@ -18,7 +18,12 @@ def output_monitor(full_monitor, purpose):
     if purpose == "update":
         monitor["id"] = full_monitor["id"]
     else:
-        monitor["type"] = full_monitor["type"]
+        # query alert is impelmentation detail within dd,
+        # when creating you should specify metric alert
+        if full_monitor["type"] == "query alert":
+            monitor["type"] = "metric alert"
+        else:
+            monitor["type"] = full_monitor["type"]
     return monitor
 
 
